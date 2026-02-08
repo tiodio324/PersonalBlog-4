@@ -1,0 +1,59 @@
+@use '@/styles/globalColors' as *;
+@use '@/styles/variables' as *;
+@use '@/styles/mixins' as *;
+
+// Personal-Blog: Типографский минимализм (editorial)
+.card {
+  display: flex;
+  flex-direction: column;
+  background: $color-bg-primary;
+  border-radius: 0;
+  border: none;
+  border-bottom: 1px solid $color-border-light;
+  overflow: hidden;
+  transition: all $transition-fast;
+}
+
+.default { background: $color-bg-primary; }
+.outlined { 
+  background: transparent;
+  border: 1px solid $color-border-light;
+}
+.elevated { 
+  background: $color-bg-primary; 
+  box-shadow: none;
+  border-bottom: 2px solid $color-text-primary;
+}
+
+.padding-none .content { padding: 0; }
+.padding-sm .content { padding: $spacing-md 0; }
+.padding-md .content { padding: $spacing-lg 0; }
+.padding-lg .content { padding: $spacing-xl 0; }
+
+.hoverable {
+  cursor: pointer;
+  
+  &:hover {
+    background: $color-bg-secondary;
+  }
+}
+
+.header {
+  padding: $spacing-md 0;
+  border-bottom: none;
+  font-family: $font-family-primary;
+  font-size: $font-size-xl;
+  
+  &:empty { display: none; }
+}
+
+.content { flex: 1; }
+
+.footer {
+  padding: $spacing-md 0;
+  border-top: 1px solid $color-border-light;
+  font-size: $font-size-sm;
+  color: $color-text-muted;
+  
+  &:empty { display: none; }
+}

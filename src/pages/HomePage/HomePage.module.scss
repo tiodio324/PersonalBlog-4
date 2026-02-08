@@ -1,0 +1,151 @@
+@use '@/styles/globalColors' as *;
+@use '@/styles/variables' as *;
+@use '@/styles/mixins' as *;
+
+// Personal-Blog: Типографский editorial стиль
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-2xl;
+}
+
+.welcome {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+  padding: $spacing-2xl 0;
+  border-bottom: 1px solid $color-border-light;
+  position: relative;
+  
+  @include mobile {
+    padding: $spacing-xl 0;
+  }
+}
+
+.welcomeContent {
+  max-width: 700px;
+}
+
+.welcomeTitle {
+  font-family: $font-family-primary;
+  font-size: $font-size-4xl;
+  font-weight: $font-weight-bold;
+  margin: 0 0 $spacing-md;
+  line-height: 1.1;
+  
+  @include mobile { font-size: $font-size-2xl; }
+}
+
+.welcomeText {
+  font-family: $font-family-secondary;
+  font-size: $font-size-lg;
+  margin: 0;
+  line-height: $line-height-relaxed;
+  color: $color-text-secondary;
+}
+
+.welcomeDecor {
+  display: none;
+}
+
+.stats {
+  display: flex;
+  gap: $spacing-2xl;
+  padding: $spacing-xl 0;
+  border-bottom: 1px solid $color-border-light;
+  
+  @include mobile {
+    flex-wrap: wrap;
+    gap: $spacing-lg;
+  }
+}
+
+.statCard {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xs;
+  padding: 0 !important;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.statIcon { display: none; }
+
+.statContent {
+  display: flex;
+  flex-direction: column;
+}
+
+.statValue {
+  font-family: $font-family-primary;
+  font-size: $font-size-3xl;
+  font-weight: $font-weight-bold;
+  color: $color-text-primary;
+}
+
+.statTitle {
+  font-size: $font-size-sm;
+  color: $color-text-muted;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.sectionTitle {
+  font-family: $font-family-primary;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+  margin: 0 0 $spacing-lg;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: $color-text-muted;
+}
+
+.actionCards {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border-top: 1px solid $color-border-light;
+}
+
+.actionCard {
+  display: flex;
+  align-items: center;
+  gap: $spacing-lg;
+  padding: $spacing-lg 0 !important;
+  background: transparent !important;
+  border: none !important;
+  border-bottom: 1px solid $color-border-light !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  
+  &:hover {
+    background: transparent !important;
+    h3 { text-decoration: underline; }
+  }
+  
+  h3 {
+    font-family: $font-family-primary;
+    font-size: $font-size-xl;
+    font-weight: $font-weight-medium;
+    color: $color-text-primary;
+    margin: 0;
+    transition: all $transition-fast;
+  }
+  p { font-size: $font-size-base; color: $color-text-muted; margin: 0; }
+}
+
+.actionIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  background: transparent;
+  border: 1px solid $color-border-primary;
+  border-radius: 0;
+  color: $color-text-primary;
+  flex-shrink: 0;
+  
+  svg { width: 24px; height: 24px; }
+}

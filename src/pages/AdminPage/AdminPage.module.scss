@@ -1,0 +1,76 @@
+@use '@/styles/globalColors' as *;
+
+.page { padding: 1.5rem; }
+.header { margin-bottom: 1.5rem; }
+.title { font-size: 1.75rem; font-weight: 700; color: $color-text-primary; margin: 0; }
+.tabs { display: flex; gap: 0.25rem; margin-bottom: 1rem; background: $color-bg-secondary; padding: 0.25rem; border-radius: 0.5rem; width: fit-content; }
+.tab { padding: 0.6rem 1.25rem; border: none; background: transparent; cursor: pointer; border-radius: 0.375rem; font-size: 0.875rem; font-weight: 500; color: $color-text-muted; transition: all 0.2s;
+  &:hover { color: $color-text-primary; }
+  &.active { background: white; color: $color-primary; box-shadow: 0 1px 3px $color-shadow; }
+}
+.toolbar { display: flex; gap: 1rem; margin-bottom: 1rem; padding: 1rem; }
+.actions { display: flex; gap: 0.25rem; }
+.form { display: flex; flex-direction: column; gap: 1rem; }
+.checkboxRow { display: flex; align-items: center; gap: 0.5rem; }
+.modalFooter { display: flex; justify-content: flex-end; gap: 0.75rem; }
+
+// Tag selector in post form
+.tagSelector {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.tagSelectorLabel {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: $color-text-primary;
+}
+
+.tagOptions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.tagOption {
+  padding: 0.35rem 0.75rem;
+  border: 1px solid $color-border-primary;
+  border-radius: 20px;
+  background: transparent;
+  color: $color-text-secondary;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: all 0.2s;
+
+  &:hover {
+    border-color: $color-primary;
+    color: $color-primary;
+  }
+}
+
+.tagOptionActive {
+  border-color: transparent;
+  color: white;
+}
+
+// Tags list in table
+.tagsList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+}
+
+.tagBadge {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  border-radius: 12px;
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: white;
+}
+
+.noTags {
+  color: $color-text-muted;
+  font-size: 0.85rem;
+}

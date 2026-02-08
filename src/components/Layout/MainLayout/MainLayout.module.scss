@@ -1,0 +1,31 @@
+@use '@/styles/globalColors' as *;
+@use '@/styles/variables' as *;
+@use '@/styles/mixins' as *;
+
+.layout {
+  min-height: 100vh;
+  background: $color-bg-secondary;
+}
+
+.body {
+  display: flex;
+  margin-top: $header-height;
+  min-height: calc(100vh - #{$header-height});
+}
+
+.main {
+  flex: 1;
+  min-width: 0;
+  background: $color-bg-secondary;
+}
+
+.content {
+  @include container;
+  padding-top: $spacing-lg;
+  padding-bottom: $spacing-2xl;
+  
+  @include mobile {
+    padding-top: $spacing-md;
+    padding-bottom: $spacing-xl;
+  }
+}

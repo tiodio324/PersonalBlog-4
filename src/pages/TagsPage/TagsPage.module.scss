@@ -1,0 +1,12 @@
+@use '@/styles/globalColors' as *;
+
+.page { padding: 1.5rem; }
+.header { margin-bottom: 1.5rem; }
+.title { font-size: 1.75rem; font-weight: 700; color: $color-text-primary; margin: 0 0 0.25rem; }
+.subtitle { font-size: 0.9rem; color: $color-text-muted; margin: 0; }
+
+.tagsGrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1.5rem; }
+.tagCard { padding: 1.5rem; text-align: center; cursor: pointer; }
+.tagBadge { font-size: 1.1rem; padding: 0.5rem 1rem; margin-bottom: 0.75rem; }
+.tagCount { font-size: 0.9rem; color: $color-text-muted; }
+.empty { grid-column: 1 / -1; text-align: center; color: $color-text-muted; padding: 3rem; }

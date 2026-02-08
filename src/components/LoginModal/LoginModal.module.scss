@@ -1,0 +1,80 @@
+@use '@/styles/globalColors' as *;
+@use '@/styles/variables' as *;
+@use '@/styles/mixins' as *;
+
+// Personal-Blog: Типографский минимализм (editorial стиль)
+.form {
+  @include flex-column;
+  gap: $spacing-xl;
+}
+
+.roleSelector {
+  @include flex-column;
+  gap: 0;
+  border-top: 1px solid $color-border-light;
+  border-bottom: 1px solid $color-border-light;
+}
+
+.roleButton {
+  @include flex-start;
+  gap: $spacing-lg;
+  width: 100%;
+  padding: $spacing-lg 0;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid $color-border-light;
+  cursor: pointer;
+  transition: all $transition-fast;
+  
+  &:last-child {
+    border-bottom: none;
+  }
+  
+  svg {
+    width: 24px;
+    height: 24px;
+    color: $color-text-muted;
+    transition: color $transition-fast;
+  }
+  
+  span {
+    font-size: $font-size-lg;
+    font-weight: $font-weight-regular;
+    color: $color-text-secondary;
+    font-family: $font-family-primary;
+    position: relative;
+    
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: $color-primary;
+      transition: width $transition-smooth;
+    }
+  }
+  
+  &:hover {
+    span {
+      color: $color-text-primary;
+      &::after { width: 100%; }
+    }
+    svg { color: $color-primary; }
+  }
+  
+  &.active {
+    svg { color: $color-primary; }
+    span {
+      color: $color-primary;
+      font-weight: $font-weight-medium;
+      &::after { width: 100%; }
+    }
+  }
+}
+
+.actions {
+  @include flex-end;
+  gap: $spacing-md;
+}

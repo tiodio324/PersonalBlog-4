@@ -1,0 +1,605 @@
+@import '../../styles/globalColors.scss';
+
+.postsPage,
+.page {
+  padding: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.header {
+  margin-bottom: 2rem;
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: $color-text-primary;
+  margin-bottom: 0.5rem;
+}
+
+.subtitle {
+  color: $color-text-secondary;
+  font-size: 1rem;
+}
+
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 300px;
+  color: $color-text-secondary;
+  font-size: 1.1rem;
+}
+
+// Фильтры
+.filters {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.searchBox {
+  flex: 1;
+  min-width: 250px;
+}
+
+.searchInput {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 2px solid $color-border-primary;
+  border-radius: 8px;
+  font-size: 1rem;
+  background: $color-bg-secondary;
+  color: $color-text-primary;
+  transition: border-color 0.2s;
+
+  &:focus {
+    outline: none;
+    border-color: $color-primary;
+  }
+
+  &::placeholder {
+    color: $color-text-muted;
+  }
+}
+
+.filterSelect {
+  padding: 0.75rem 1rem;
+  border: 2px solid $color-border-primary;
+  border-radius: 8px;
+  font-size: 1rem;
+  background: $color-bg-secondary;
+  color: $color-text-primary;
+  cursor: pointer;
+  min-width: 180px;
+
+  &:focus {
+    outline: none;
+    border-color: $color-primary;
+  }
+}
+
+.clearTag {
+  padding: 0.5rem 1rem;
+  background: $color-primary;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background 0.2s;
+
+  &:hover {
+    background: $color-primary-medium;
+  }
+}
+
+// Теги
+.tagsSection {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+
+.tagButton {
+  padding: 0.4rem 0.8rem;
+  background: transparent;
+  border: 1px solid $color-border-primary;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  color: $color-text-secondary;
+  cursor: pointer;
+  transition: all 0.2s;
+
+  &:hover {
+    border-color: $color-primary;
+    color: $color-primary;
+  }
+
+  &.activeTag {
+    background: $color-primary;
+    border-color: $color-primary;
+    color: white;
+  }
+}
+
+// Сетка постов
+.postsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 1.5rem;
+}
+
+.postCard {
+  background: $color-bg-secondary;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid $color-border-primary;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    border-color: $color-primary;
+  }
+}
+
+.postCover {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.postContent {
+  padding: 1.25rem;
+}
+
+.postMeta {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.postCategory {
+  padding: 0.25rem 0.6rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: white;
+}
+
+.postDate {
+  font-size: 0.8rem;
+  color: $color-text-muted;
+}
+
+.postTitle {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: $color-text-primary;
+  margin-bottom: 0.5rem;
+  line-height: 1.4;
+}
+
+.postExcerpt {
+  font-size: 0.9rem;
+  color: $color-text-secondary;
+  line-height: 1.6;
+  margin-bottom: 0.75rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.postTags {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.75rem;
+}
+
+.postTag {
+  font-size: 0.8rem;
+  color: $color-primary;
+}
+
+.postStats {
+  display: flex;
+  gap: 1rem;
+  font-size: 0.85rem;
+  color: $color-text-muted;
+}
+
+// Пустое состояние
+.emptyState,
+.empty {
+  text-align: center;
+  padding: 4rem 2rem;
+  color: $color-text-secondary;
+
+  p {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+  }
+}
+
+// Post detail view
+.postDetail {
+  padding: 2rem;
+}
+
+.backButton {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  background: transparent;
+  border: 1px solid $color-border-primary;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  color: $color-text-secondary;
+  cursor: pointer;
+  margin-bottom: 1.5rem;
+  transition: all 0.2s;
+
+  &:hover {
+    border-color: $color-primary;
+    color: $color-primary;
+  }
+}
+
+.coverImage {
+  width: 100%;
+  max-height: 400px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+}
+
+.postImage {
+  width: 100%;
+  height: 200px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 8px 8px 0 0;
+}
+
+.postFooter {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.postViews {
+  font-size: 0.85rem;
+  color: $color-text-muted;
+}
+
+.clearFilters {
+  padding: 0.75rem 1.5rem;
+  background: $color-primary;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+
+  &:hover {
+    background: $color-primary-medium;
+  }
+}
+
+// Модальное окно поста
+.postModal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 2rem;
+  overflow-y: auto;
+  z-index: 1000;
+}
+
+.postModalContent {
+  background: $color-bg-primary;
+  border-radius: 16px;
+  max-width: 900px;
+  width: 100%;
+  position: relative;
+  margin: 2rem auto;
+}
+
+.closeButton {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 40px;
+  height: 40px;
+  border: none;
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  border-radius: 50%;
+  font-size: 1.25rem;
+  cursor: pointer;
+  z-index: 10;
+  transition: background 0.2s;
+
+  &:hover {
+    background: rgba(0, 0, 0, 0.7);
+  }
+}
+
+.fullPost {
+  padding: 0;
+}
+
+.fullPostCover {
+  width: 100%;
+  height: 400px;
+  overflow: hidden;
+  border-radius: 16px 16px 0 0;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.fullPostMeta {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 2rem 2rem 0;
+}
+
+.fullPostCategory {
+  padding: 0.3rem 0.75rem;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: white;
+}
+
+.fullPostDate {
+  font-size: 0.9rem;
+  color: $color-text-muted;
+}
+
+.fullPostTitle {
+  font-size: 2rem;
+  font-weight: 700;
+  color: $color-text-primary;
+  padding: 1rem 2rem;
+  line-height: 1.3;
+}
+
+.fullPostContent {
+  padding: 0 2rem 1.5rem;
+  
+  p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: $color-text-primary;
+    margin-bottom: 1rem;
+  }
+}
+
+.fullPostTags {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  padding: 0 2rem 1.5rem;
+}
+
+.fullPostTag {
+  padding: 0.3rem 0.6rem;
+  background: rgba($color-primary, 0.1);
+  color: $color-primary;
+  border-radius: 4px;
+  font-size: 0.9rem;
+}
+
+.fullPostActions {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1rem 2rem;
+  border-top: 1px solid $color-border-primary;
+  border-bottom: 1px solid $color-border-primary;
+}
+
+.likeButton {
+  padding: 0.5rem 1rem;
+  background: rgba($color-error, 0.1);
+  border: none;
+  border-radius: 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s;
+
+  &:hover {
+    background: rgba($color-error, 0.2);
+    transform: scale(1.05);
+  }
+}
+
+.viewsCount {
+  color: $color-text-muted;
+  font-size: 0.95rem;
+}
+
+// Комментарии
+.commentsSection {
+  padding: 1.5rem 2rem 2rem;
+
+  h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: $color-text-primary;
+    margin-bottom: 1.25rem;
+  }
+}
+
+.commentForm {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.commentInput {
+  width: 100%;
+  min-height: 100px;
+  padding: 1rem;
+  border: 2px solid $color-border-primary;
+  border-radius: 8px;
+  font-size: 1rem;
+  background: $color-bg-secondary;
+  color: $color-text-primary;
+  resize: vertical;
+
+  &:focus {
+    outline: none;
+    border-color: $color-primary;
+  }
+}
+
+.commentSubmit {
+  align-self: flex-end;
+  padding: 0.75rem 1.5rem;
+  background: $color-primary;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+
+  &:hover:not(:disabled) {
+    background: $color-primary-medium;
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+.commentsList {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.comment {
+  padding: 1rem;
+  background: $color-bg-secondary;
+  border-radius: 8px;
+  border: 1px solid $color-border-primary;
+}
+
+.commentHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.commentAuthor {
+  font-weight: 600;
+  color: $color-text-primary;
+}
+
+.commentDate {
+  font-size: 0.8rem;
+  color: $color-text-muted;
+}
+
+.commentContent {
+  color: $color-text-secondary;
+  line-height: 1.5;
+}
+
+.noComments {
+  text-align: center;
+  color: $color-text-muted;
+  padding: 2rem;
+}
+
+// Адаптивность
+@media (max-width: 768px) {
+  .postsPage {
+    padding: 1rem;
+  }
+
+  .title {
+    font-size: 1.5rem;
+  }
+
+  .filters {
+    flex-direction: column;
+  }
+
+  .searchBox {
+    min-width: 100%;
+  }
+
+  .filterSelect {
+    width: 100%;
+  }
+
+  .postsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .postModal {
+    padding: 0;
+  }
+
+  .postModalContent {
+    margin: 0;
+    border-radius: 0;
+    min-height: 100vh;
+  }
+
+  .fullPostCover {
+    height: 250px;
+    border-radius: 0;
+  }
+
+  .fullPostTitle {
+    font-size: 1.5rem;
+    padding: 1rem;
+  }
+
+  .fullPostContent {
+    padding: 0 1rem 1rem;
+  }
+
+  .fullPostTags,
+  .fullPostActions,
+  .commentsSection {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
